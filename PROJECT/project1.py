@@ -1,5 +1,19 @@
 import random
+import string
 user_config = {}
+def get_password_lenghs() :
+    while True :
+        user_input = input ("enter number of char that you like give password")
+        if user_input.isdigit() :
+            user_pass_lengh = int(user_input)
+            if 4<= user_pass_lengh < 20 : 
+                return user_pass_lengh
+            print("invalid input")
+            print("the lenghs of pass shuld between 4 -30 ")
+        else :
+            print("invalid input, enter number")
+        print("try again !!!")
+        # get_password_lenghs()
 
 # ************************************************************
 def user_ascii_symbol(num) :
@@ -39,6 +53,7 @@ def genarat_user_pass(num) :
                 break
         
         password_user.append( generat_user_ascii(index_user))
+    
     print (f"your password is :   {password_user}" )
 
 # ************************************************************
@@ -73,16 +88,12 @@ def select_config_user(select_number) :
 # ************************************************************
 def start() :
     """start program"""
-    try :
-        num = int(input ("enter number of char that you like give password"))
-    except:
-        print("enter number")
-        start()
-        
+    user_config['lenghs'] = get_password_lenghs()
+    print (user_config['lenghs']) 
     for i in range (5) :
         select_config_user(i)
     
-    genarat_user_pass(num)
+    genarat_user_pass(user_config['lenghs'])
     
 
 start()
