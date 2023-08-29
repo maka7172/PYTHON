@@ -1,7 +1,29 @@
-my_list = [24,32,20,18]
-result = 0 
-al = 1
-for num in my_list :
-    result += num *al
-    al *= -1 
-print (result)
+# class MyCar() :
+#     def __init__ (self,color,model) :
+#         self.color = color
+#         self.model = model
+#     def my_print(self) :
+#         print("i'm method")
+
+# car1 = MyCar("belue","BMW")
+# print(car1.color)
+# print(car1.model)
+
+import os
+os.system('cls')
+class House :
+    
+    def __init__(self,color,model):
+        self.color = color
+        self.model = model
+
+    def city_chek (self) :
+        country = "iran"
+        if country == "iran" :
+            print(f"the country is : {country}")
+        else :
+            print(f"the country is : {country}")
+
+hose1 = House("blue","BMW")
+hose1.country = "usa"
+print(hose1.country)
