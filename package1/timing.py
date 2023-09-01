@@ -1,5 +1,11 @@
 class Time :
-    def __init__(self,hour=None,minit=None,secont=None) :
+    def __init__(self,hour,minit,secont) :
+        # if int(hour) >= 24 :
+        #     raise ValueError("the hour number not be grater than 24")
+        # if int(minit) > 59 :
+        #     raise ValueError("the minit number not be grater than 59")
+        # if int(secont) > 59 :
+        #     raise ValueError("the sec number not be grater than 59")
         self.hour = hour
         self.minit = minit
         self.secont = secont
@@ -14,14 +20,23 @@ class Time :
     
 class TimeShow (Time) :
         def __str__(self) :
-            return f"the time is : {self.hour} : {self.minit} : {self.secont}"
+            return f"the time is : {self.hour:02} : {self.minit:02} : {self.secont:02}"
         
-        def __add__(self,x):
-            temp = TimeShow()
-            temp.hour = self.hour + x.hour
-            temp.minit = self.minit + x.minit
-            temp.secont = self.secont + x.secont
+        def __add__(self,x): #craet temp object and give two object for plus together
+            secont = self.secont + x.secont
+            minit = self.minit + x.minit + (secont //60)
+            hour = self.hour + x.hour + (minit //60)
+                       
+            temp = TimeShow(hour %24,minit %60,secont%60)
             return temp 
+        
+        def __eq__(self, x) :
+            if self.hour == x.hour and self.minit == x.minit and self.secont == x.secont :
+                return True
+            else :
+                return False
+                
+    
     
 
 
