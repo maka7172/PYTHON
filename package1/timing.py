@@ -1,5 +1,5 @@
 class Time :
-    def __init__(self,hour,minit,secont) :
+    def __init__(self,hour=None,minit=None,secont=None) :
         self.hour = hour
         self.minit = minit
         self.secont = secont
@@ -15,6 +15,13 @@ class Time :
 class TimeShow (Time) :
         def __str__(self) :
             return f"the time is : {self.hour} : {self.minit} : {self.secont}"
+        
+        def __add__(self,x):
+            temp = TimeShow()
+            temp.hour = self.hour + x.hour
+            temp.minit = self.minit + x.minit
+            temp.secont = self.secont + x.secont
+            return temp 
     
 
 

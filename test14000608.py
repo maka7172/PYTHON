@@ -9,10 +9,15 @@ date1 = datetime.datetime.now()
 
 
 time1 = TimeShow(date1.hour,date1.minute,date1.second)
-print (time1)
-print(time1.hour_time())
-print(time1.minit_time())
-print(time1.secont_time())
+time2 = TimeShow(date1.hour,date1.minute,date1.second)
+time3 = time1 + time2 
+print (time3)
+
+
+# print (time1)
+# print(time1.hour_time())
+# print(time1.minit_time())
+# print(time1.secont_time())
 
 
 
